@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Koti\\Source\\Repos\\Rikuuuuuuu\\Mindly\\Mindly\\Mindly.csproj": {}
+    "D:\\git\\Mindly\\Mindly\\Mindly.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Koti\\Source\\Repos\\Rikuuuuuuu\\Mindly\\Mindly\\Mindly.csproj": {
+    "D:\\git\\Mindly\\Mindly\\Mindly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Koti\\Source\\Repos\\Rikuuuuuuu\\Mindly\\Mindly\\Mindly.csproj",
+        "projectUniqueName": "D:\\git\\Mindly\\Mindly\\Mindly.csproj",
         "projectName": "Mindly",
-        "projectPath": "C:\\Users\\Koti\\Source\\Repos\\Rikuuuuuuu\\Mindly\\Mindly\\Mindly.csproj",
-        "packagesPath": "C:\\Users\\Koti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Koti\\Source\\Repos\\Rikuuuuuuu\\Mindly\\Mindly\\obj\\",
+        "projectPath": "D:\\git\\Mindly\\Mindly\\Mindly.csproj",
+        "packagesPath": "C:\\Users\\bustar\\.nuget\\packages\\",
+        "outputPath": "D:\\git\\Mindly\\Mindly\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Koti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bustar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
