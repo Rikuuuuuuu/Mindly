@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\git\\Mindly\\Mindly\\Mindly.csproj": {}
+    "C:\\Users\\rasmu\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj": {}
   },
   "projects": {
-    "D:\\git\\Mindly\\Mindly\\Mindly.csproj": {
+    "C:\\Users\\rasmu\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\git\\Mindly\\Mindly\\Mindly.csproj",
+        "projectUniqueName": "C:\\Users\\rasmu\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj",
         "projectName": "Mindly",
-        "projectPath": "D:\\git\\Mindly\\Mindly\\Mindly.csproj",
-        "packagesPath": "C:\\Users\\bustar\\.nuget\\packages\\",
-        "outputPath": "D:\\git\\Mindly\\Mindly\\obj\\",
+        "projectPath": "C:\\Users\\rasmu\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj",
+        "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rasmu\\Documents\\GitHub\\Mindly\\Mindly\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\bustar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -57,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
