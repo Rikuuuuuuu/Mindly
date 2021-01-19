@@ -1,0 +1,36 @@
+﻿header {
+    width: 100%;
+    height: 150px;
+}
+
+.line {
+    position: absolute;
+    width: 1322px;
+    height: 0px;
+    left: calc(50% - 1322px/2);
+    top: 140px;
+    border: 1px solid #585858;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+    transform: rotate(-0.00deg);
+}
+
+.logo-image {
+    position: absolute;
+    left: 200px;
+    top: 35px;
+}
+
+.mindly-button {
+    width: 150px;
+    height: 50px;
+    background: #F46A54;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
