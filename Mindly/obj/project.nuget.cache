@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "H7Z7qHIG9mqsjUmBKuThClniz3ch15RYzCiGGiwuhaep17fLhOi4t3acjQpWM17nCEa1Ka+iB5Kwa96Ttjg17w==",
   "success": true,
   "projectFilePath": "C:\\Users\\rasmu\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj",
+=======
+  "dgSpecHash": "RJ/jNUWmp9idg329fPVyzMdSEA2PzDP0mP9Ju8hkibS0DPcBIURoDOZBCagIwQVOSGtqac9fg3fNNkDOffg7lw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Omistaja\\Desktop\\Mindly\\Mindly\\Mindly.csproj",
+>>>>>>> a5cdf30c3ee59edb5418aa91cfd8c329c48b75fb
   "expectedPackageFiles": [],
   "logs": []
 }
