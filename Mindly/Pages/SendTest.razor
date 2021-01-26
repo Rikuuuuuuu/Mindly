@@ -10,8 +10,11 @@
     }
 
     .flex-container {
-        /*display: inline-block;*/
         background-color: darksalmon;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 
     #logout-button {       
@@ -39,9 +42,9 @@
                 <h3>Welcome!</h3>
                 <h4>Send test</h4>
 
-                <input type="text" placeholder="Email address" />
-                <button class="mindly-button" type="button">Send test</button>
-
+                <input type="text" @bind="Email" placeholder="Email address" />
+                <button class="mindly-button" type="button" @onclick="EmailValidation">Send test</button>
+            <h3>@Message</h3>
         </div>
     </div>
 </body>
@@ -49,4 +52,22 @@
 
 @code {
 
+    [Parameter]
+    public string Email { get; set; }
+
+    string Message;
+
+    void EmailValidation()
+    {
+
+        if (Email == null)
+        {
+            Message = "Täytä tähän jotain!";
+        }
+
+        else
+        {
+            Message = "Jjeee mahtavaa";
+        }
+    }
 }
