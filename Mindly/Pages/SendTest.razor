@@ -1,0 +1,73 @@
+﻿@page "/sendtest"
+
+<style>
+    .sendtest-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aqua;
+        padding: 10%;
+    }
+
+    .flex-container {
+        background-color: darksalmon;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    #logout-button {       
+        position: absolute;
+        right: 220px;
+        top: 40px;
+    }
+
+</style>
+
+<link rel="stylesheet" href="/css/header-style.css" />
+
+<body>
+    <header>
+        <div class="header-items">
+            <img class="logo-image" src="/mindlylogo.png" />
+            <button id="logout-button" class="mindly-button">Log Out</button>
+            <div class="line"></div>
+        </div>
+        
+    </header>
+
+    <div class="sendtest-body">
+        <div class="flex-container">
+                <h3>Welcome!</h3>
+                <h4>Send test</h4>
+
+                <input type="text" @bind="Email" placeholder="Email address" />
+                <button class="mindly-button" type="button" @onclick="EmailValidation">Send test</button>
+            <h3>@Message</h3>
+        </div>
+    </div>
+</body>
+
+
+@code {
+
+    [Parameter]
+    public string Email { get; set; }
+
+    string Message;
+
+    void EmailValidation()
+    {
+
+        if (Email == null)
+        {
+            Message = "Täytä tähän jotain!";
+        }
+
+        else
+        {
+            Message = "Jjeee mahtavaa";
+        }
+    }
+}
