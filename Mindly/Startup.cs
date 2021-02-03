@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Mindly.Models;
 
 namespace Mindly
 {
@@ -33,6 +34,7 @@ namespace Mindly
 
             services.AddDbContext<MindlyContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MindlyContext")));
+            services.AddScoped<UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

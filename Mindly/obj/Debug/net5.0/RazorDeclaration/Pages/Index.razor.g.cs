@@ -82,6 +82,13 @@ using Mindly.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+using Mindly.Data;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +97,55 @@ using Mindly.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 4 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+ 
+    string Email;
+    string Password;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 170 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+ 
+    List<UserService> users;
+
+    protected override async Task OnInitAsync()
+    {
+        await load();
+    }
+
+    protected async Task load()
+    {
+        users = await userService.GetUserAsync();
+    }
+
+    protected async Task Insert()
+    {
+
+        UserService s = new Users()
+        {
+            ID = Guid.NewGuid().ToString(),
+            Email = Email,
+            Password = Password,
+        };
+
+        await userService.InsertUserAsync(s);
+        ClearFields();
+        await load();
+    }
+
+    protected void ClearFields()
+    {
+        Email = string.Empty;
+        Password = string.Empty;
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UserService userService { get; set; }
     }
 }
 #pragma warning restore 1591

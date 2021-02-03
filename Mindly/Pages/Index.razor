@@ -1,5 +1,13 @@
-﻿@page "/"
-
+﻿@using Mindly.Data
+@inject UserService userService
+@code 
+{
+    string Email;
+    string Password;
+}
+string Email;
+string Password;
+@page "/"
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -116,15 +124,15 @@
 
             <div class="container">
                 <label for="email"><b>Sähköposti</b></label>
-                <input type="email" placeholder="Sähköposti.." name="email" required>
+                <input type="email" placeholder="Sähköposti.." name="email" @bind="@Email" required>
 
                 <label for="Salasana"><b>Salasana</b></label>
-                <input type="password" placeholder="Salasana.." name="Salasana" required>
+                <input type="password" placeholder="Salasana.." name="Salasana" @bind="@Password" required>
 
                 <label for="Salasana"><b>Vahvista salasana</b></label>
                 <input type="password" placeholder="Vahvista salasana.." name="SalasanaVah" required>
 
-                <button type="submit" onclick="matchPassword()">Luo tili</button>
+                <button @onclick="@Insert" class="btn btn-warning">Insert</button>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
@@ -140,7 +148,7 @@
 
             <div class="container">
                 <label for="Spost"><b>Sähköposti</b></label>
-                <input type="email" placeholder="Sähköposti.." name="Spost" required>
+                <input type="email" placeholder="Sähköposti.." name="email" required>
 
                 <label for="Salasana"><b>Salasana</b></label>
                 <input type="password" placeholder="Salasana.." name="Salasana" required>
@@ -158,3 +166,7 @@
         </form>
     </div>
 </body>
+@functions
+{
+
+}
