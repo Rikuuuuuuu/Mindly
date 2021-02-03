@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Omistaja\\Desktop\\Mindly\\Mindly\\Mindly.csproj": {}
+    "C:\\Users\\vilbort\\Mindly Oy projekti\\Mindly\\Mindly\\Mindly.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Omistaja\\Desktop\\Mindly\\Mindly\\Mindly.csproj": {
+    "C:\\Users\\vilbort\\Mindly Oy projekti\\Mindly\\Mindly\\Mindly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Omistaja\\Desktop\\Mindly\\Mindly\\Mindly.csproj",
+        "projectUniqueName": "C:\\Users\\vilbort\\Mindly Oy projekti\\Mindly\\Mindly\\Mindly.csproj",
         "projectName": "Mindly",
-        "projectPath": "C:\\Users\\Omistaja\\Desktop\\Mindly\\Mindly\\Mindly.csproj",
-        "packagesPath": "C:\\Users\\Omistaja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Omistaja\\Desktop\\Mindly\\Mindly\\obj\\",
+        "projectPath": "C:\\Users\\vilbort\\Mindly Oy projekti\\Mindly\\Mindly\\Mindly.csproj",
+        "packagesPath": "C:\\Users\\vilbort\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vilbort\\Mindly Oy projekti\\Mindly\\Mindly\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Omistaja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vilbort\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
