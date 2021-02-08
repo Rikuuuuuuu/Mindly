@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using DataAccessLibrary;
 
 namespace Mindly
 {
@@ -30,6 +31,8 @@ namespace Mindly
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+            services.AddTransient<IUserData, UserData>();
 
             services.AddDbContext<MindlyContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MindlyContext")));
