@@ -1,0 +1,56 @@
+﻿
+
+<link rel="stylesheet" href="/css/header-style.css" />
+
+<body>
+    <h3>FormPage</h3>
+
+    <input type="radio" name="well" />
+</body>
+
+
+
+@code {
+
+}
+
+@*
+    @using System.ComponentModel.DataAnnotations
+
+    <body>
+        <h3>RadiobuttonComponent</h3>
+
+        <EditForm Model="@model" OnValidSubmit="@HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            @for (int i = 0; i <= 5; i++)
+            {
+                <label>
+                    <InputRadio Name="ratio" SelectedValue="i" @bind-Value="model.Rating" />
+                    @i
+                </label>
+            }
+
+        </EditForm>
+
+        <p>Here is @model.Rating</p>
+
+        <input type="submit" id="mindly-button" />
+    </body>
+
+
+    @code {
+        private Model model = new Model();
+
+        private void HandleValidSubmit()
+        {
+
+        }
+
+        public class Model
+        {
+            [Range(1, 5)]
+            public int Rating { get; set; }
+        }
+    }*@
