@@ -1,35 +1,64 @@
 ﻿@page "/formpage"
 
 <style>
-    #blokkii {
+    #form-block {
         display: block;
         text-align:center;
     }
 
-    ul {
-        list-style-type: none;
+    #radiobutton {
+        display: inline-block;
     }
+
 </style>
 
 <link rel="stylesheet" href="/css/header-style.css" />
 
 <body>
-    <div id="blokkii">
-        <h4>Mitäs pidät?</h4>
-        <ul>
-            <li><input type="radio" name="well" /></li>
-            <li><input type="radio" name="well" /></li>
-            <li><input type="radio" name="well" /></li>
-            <li><input type="radio" name="well" /></li>
-            <li><input type="radio" name="well" /></li>
-        </ul>
-        
+    <div id="form-block">
+        <div id="radiobutton">
+            <h4>1st question.</h4>
+            @*Checked value goes to the variable radioValue*@
+            <input type="radio" name="well" value="1" checked="@(radioValue1 == 1)" @onclick="(()=>radioValue1 = 1)" />No
+            <input type="radio" name="well" value="2" checked="@(radioValue1 == 2)" @onclick="(()=>radioValue1 = 2)" />Slight No
+            <input type="radio" name="well" value="3" checked="@(radioValue1 == 3)" @onclick="(()=>radioValue1 = 3)" />Idk
+            <input type="radio" name="well" value="4" checked="@(radioValue1 == 4)" @onclick="(()=>radioValue1 = 4)" />Slight Yes
+            <input type="radio" name="well" value="5" checked="@(radioValue1 == 5)" @onclick="(()=>radioValue1 = 5)" />Yes
+            <br />
+            @radioValue1 @*Shows radio button clicked value*@
+        </div>
+
+        <br />
+
+        <div id="radiobutton">
+            <h4>2nd question.</h4>
+            @*Checked value goes to the variable radioValue*@
+            <input type="radio" name="well" value="1" checked="@(radioValue2 == 1)" @onclick="(()=>radioValue2 = 1)" />No
+            <input type="radio" name="well" value="2" checked="@(radioValue2 == 2)" @onclick="(()=>radioValue2 = 2)" />Slight No
+            <input type="radio" name="well" value="3" checked="@(radioValue2 == 3)" @onclick="(()=>radioValue2 = 3)" />Idk
+            <input type="radio" name="well" value="4" checked="@(radioValue2 == 4)" @onclick="(()=>radioValue2 = 4)" />Slight Yes
+            <input type="radio" name="well" value="5" checked="@(radioValue2 == 5)" @onclick="(()=>radioValue2 = 5)" />Yes
+            <br />
+            @radioValue2 @*Shows radio button clicked value*@
+        </div>
+        <br />
+        @formValueError
+
+        <br />
+        <input type="button" />
     </div>
-    
 </body>
 
+@if (radioValue1 == 0 && radioValue2 == 0)
+{
+    formValueError = "Please please please";
+}
 
 
 @code {
+    int radioValue1 = 0;
+    int radioValue2 = 0;
+
+    string formValueError;
 
 }
