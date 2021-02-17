@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rasmu\\source\\repos\\Mindly\\Mindly\\Mindly.csproj": {}
+    "C:\\Users\\Koti\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rasmu\\source\\repos\\Mindly\\Mindly\\Mindly.csproj": {
+    "C:\\Users\\Koti\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rasmu\\source\\repos\\Mindly\\Mindly\\Mindly.csproj",
+        "projectUniqueName": "C:\\Users\\Koti\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj",
         "projectName": "Mindly",
-        "projectPath": "C:\\Users\\rasmu\\source\\repos\\Mindly\\Mindly\\Mindly.csproj",
-        "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rasmu\\source\\repos\\Mindly\\Mindly\\obj\\",
+        "projectPath": "C:\\Users\\Koti\\Documents\\GitHub\\Mindly\\Mindly\\Mindly.csproj",
+        "packagesPath": "C:\\Users\\Koti\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Koti\\Documents\\GitHub\\Mindly\\Mindly\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Koti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -51,19 +46,25 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.2, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [
@@ -84,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
