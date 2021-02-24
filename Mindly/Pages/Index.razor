@@ -1,7 +1,43 @@
 ﻿@page "/"
+@using System.Net.Mail
 <AuthorizeView>
     <Authorized>
-        <a href="counter">  Linkki kyselyyn... </a>
+        <button class="btn btn-primary" @onclick="SendMail">Send Mail</button>
+        <br />
+
+        <span style="font-weight:bold;font-size:28px;color:#c00;">@Message</span>
+
+        @code{
+            private string Message { get; set; } = "";
+
+            private void SendMail()
+            {
+                try
+                {
+                    using (MailMessage mail = new MailMessage())
+                    {
+                        mail.From = new MailAddress("mindlytest@gmail.com");
+                        mail.To.Add("ruotsalainenriku04@gmail.com");
+                        mail.Subject = "Mindly email test";
+                        mail.Body = "<h1>Testi</h1>";
+                        mail.IsBodyHtml = true;
+
+                        using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                        {
+                            smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com","Koulu1234");
+                            smtp.EnableSsl = true;
+                            smtp.Send(mail);
+                            Message = "Mail sent";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Message = ex.Message;
+                }
+            }
+
+        }
 </Authorized>
     <NotAuthorized>
         Log in first
