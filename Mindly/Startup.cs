@@ -34,7 +34,7 @@ namespace Mindly
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("Default")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
@@ -46,7 +46,7 @@ namespace Mindly
             services.AddTransient<IUserData, UserData>();
 
             services.AddDbContext<MindlyContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MindlyContext")));
+                   options.UseSqlServer(Configuration.GetConnectionString("Default")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
