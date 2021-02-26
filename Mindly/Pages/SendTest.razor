@@ -23,6 +23,10 @@
         top: 40px;
     }
 
+    #test {
+
+    }
+
 </style>
 
 <link rel="stylesheet" href="/css/header-style.css" />
@@ -39,10 +43,25 @@
 
     <div class="sendtest-body">
         <div class="flex-container">
-                <h3>Welcome!</h3>
-                <h4>Send test</h4>
+                <h2>Welcome!</h2>
+                <h3>Send test</h3>
+
+                <div class="dropdown-container">
+                    <label for="test">Choose a test.</label>
+                    <br />
+                    <select name="test" id="test" @bind="TestChoice">
+                        <option value="Testi1" @onclick="TestLink1">Testi1</option>
+                        <option value="Testi2" @onclick="TestLink2">Testi2</option>
+                    </select>
+                    <br />
+                    <h3>Chosen test is @Test</h3>
+                    <br />
+                    <h4>Test description</h4>
+                    <h4>@TestDescrpt</h4>
+                </div>
 
                 <input type="text" @bind="Email" placeholder="Email address" />
+                <br />
                 <button class="mindly-button" type="button" @onclick="EmailValidation">Send test</button>
             <h3>@Message</h3>
         </div>
@@ -51,6 +70,25 @@
 
 
 @code {
+
+    [Parameter]
+    public string TestChoice { get; set; }
+
+    string Test;
+    string TestDescrpt;
+
+    //By onclick call this method sets value for the Test variable
+    void TestLink1()
+    {
+        Test = "Testilinkki 1";
+        TestDescrpt = "Tämä testi on tavallinen persoonallisuus testi";
+    }
+
+    void TestLink2()
+    {
+        Test = "Testilinkki 2";
+        TestDescrpt = "Tässä testissä on tarkoituksena jokin muu.";
+    }
 
     [Parameter]
     public string Email { get; set; }
