@@ -1,0 +1,111 @@
+﻿@page "/sendtest"
+
+<style>
+    .sendtest-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aqua;
+        padding: 10%;
+    }
+
+    .flex-container {
+        background-color: darksalmon;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    #logout-button {       
+        position: absolute;
+        right: 220px;
+        top: 40px;
+    }
+
+    #test {
+
+    }
+
+</style>
+
+<link rel="stylesheet" href="/css/header-style.css" />
+
+<body>
+    <header>
+        <div class="header-items">
+            <img class="logo-image" src="/mindlylogo.png" />
+            <button id="logout-button" class="mindly-button">Log Out</button>
+            <div class="line"></div>
+        </div>
+        
+    </header>
+
+    <div class="sendtest-body">
+        <div class="flex-container">
+                <h2>Welcome!</h2>
+                <h3>Send test</h3>
+
+                <div class="dropdown-container">
+                    <label for="test">Choose a test.</label>
+                    <br />
+                    <select name="test" id="test" @bind="TestChoice">
+                        <option value="Testi1" @onclick="TestLink1">Testi1</option>
+                        <option value="Testi2" @onclick="TestLink2">Testi2</option>
+                    </select>
+                    <br />
+                    <h3>Chosen test is @Test</h3>
+                    <br />
+                    <h4>Test description</h4>
+                    <h4>@TestDescrpt</h4>
+                </div>
+
+                <input type="text" @bind="Email" placeholder="Email address" />
+                <br />
+                <button class="mindly-button" type="button" @onclick="EmailValidation">Send test</button>
+            <h3>@Message</h3>
+        </div>
+    </div>
+</body>
+
+
+@code {
+
+    [Parameter]
+    public string TestChoice { get; set; }
+
+    string Test;
+    string TestDescrpt;
+
+    //By onclick call this method sets value for the Test variable
+    void TestLink1()
+    {
+        Test = "Testilinkki 1";
+        TestDescrpt = "Tämä testi on tavallinen persoonallisuus testi";
+    }
+
+    void TestLink2()
+    {
+        Test = "Testilinkki 2";
+        TestDescrpt = "Tässä testissä on tarkoituksena jokin muu.";
+    }
+
+    [Parameter]
+    public string Email { get; set; }
+
+    string Message;
+
+    void EmailValidation()
+    {
+
+        if (Email == null)
+        {
+            Message = "Täytä tähän jotain!";
+        }
+
+        else
+        {
+            Message = "Jjeee mahtavaa";
+        }
+    }
+}

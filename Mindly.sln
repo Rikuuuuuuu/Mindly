@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mindly", "Mindly\Mindly.csproj", "{D14B3C4C-C611-4CF7-8AF3-4950F3178AF1}"
+=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mindly", "Mindly\Mindly.csproj", "{6F71F146-F39B-4ACF-B064-A04B9957A403}"
+>>>>>>> SendTestLayout
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
