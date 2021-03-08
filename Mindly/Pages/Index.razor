@@ -1,9 +1,50 @@
 ﻿@page "/"
+@using System.Net.Mail
+<AuthorizeView>
+    <Authorized>
 
-<h1>Hello, world!</h1>
+            <label for="fname">Email:</label>
+            <input type="email" id="email" name="email" @bind="email" required><br><br>
+            <button class="btn btn-primary" @onclick="SendMail">Send Mail</button>
+            <br />
 
-Welcome to your new app.
+            <span style="font-weight:bold;font-size:28px;color:#c00;">@Message</span>
 
-<NavLink href="sendtest">send test page</NavLink>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+        @code{
+            string email = "";
+            private string Message { get; set; } = "";
+            private void SendMail()
+            {
+                try
+                {
+                    using (MailMessage mail = new MailMessage())
+                    {
+                        mail.From = new MailAddress("mindlytest@gmail.com");
+                        mail.To.Add(email);
+                        mail.Subject = "Mindly email test";
+                        mail.Body = "<p>Testi</p>";
+                        mail.IsBodyHtml = true;
+
+
+                        using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                        {
+                            smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
+                            smtp.EnableSsl = true;
+                            smtp.Send(mail);
+                            Message = "Mail sent";
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
+        }
+    </Authorized>
+    <NotAuthorized>
+        Log in first
+</NotAuthorized>
+</AuthorizeView>

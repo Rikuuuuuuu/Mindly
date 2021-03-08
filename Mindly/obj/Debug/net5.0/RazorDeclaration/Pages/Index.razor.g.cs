@@ -82,6 +82,13 @@ using Mindly.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Omistaja\Desktop\Mindly\Mindly\Pages\Index.razor"
+using System.Net.Mail;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +97,44 @@ using Mindly.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 19 "C:\Users\Omistaja\Desktop\Mindly\Mindly\Pages\Index.razor"
+              
+            string email = "";
+            private string Message { get; set; } = "";
+            private void SendMail()
+            {
+                try
+                {
+                    using (MailMessage mail = new MailMessage())
+                    {
+                        mail.From = new MailAddress("mindlytest@gmail.com");
+                        mail.To.Add(email);
+                        mail.Subject = "Mindly email test";
+                        mail.Body = "<p>Testi</p>";
+                        mail.IsBodyHtml = true;
+
+
+                        using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                        {
+                            smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
+                            smtp.EnableSsl = true;
+                            smtp.Send(mail);
+                            Message = "Mail sent";
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
+        
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591
