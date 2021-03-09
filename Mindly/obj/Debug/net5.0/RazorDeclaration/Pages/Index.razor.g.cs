@@ -98,8 +98,9 @@ using System.Net.Mail;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 14 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 22 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
               
+            string testi = "Testi1";
             string email = "";
             private string Message { get; set; } = "";
             private void SendMail()
@@ -111,10 +112,17 @@ using System.Net.Mail;
                         mail.From = new MailAddress("mindlytest@gmail.com");
                         mail.To.Add(email);
                         mail.Subject = "Mindly email test";
-                        mail.Body = "<p>Testi</p>";
                         mail.IsBodyHtml = true;
 
+                        if (testi == "Testi1")
+                        {
+                            mail.Body = "<p>Testi1</p>";
+                        }
 
+                        if (testi == "Testi2")
+                        {
+                            mail.Body = "<p>Testi2</p>";
+                        }
                         using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                         {
                             smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
