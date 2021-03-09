@@ -1,0 +1,74 @@
+﻿@page "/formpage"
+
+<style>
+    #form-block {
+        display: flex;
+        justify-content: center;
+
+        @*text-align:center;*@
+    }
+
+    #radiobutton {
+        padding: 30px;
+    }
+
+</style>
+
+@*<link rel="stylesheet" href="/css/header-style.css" />*@
+
+<body>
+    <div id="form-block">
+        <div id="radiobutton">
+            <h4>1st question.</h4>
+            @*Checked value goes to the variable radioValue*@
+            <input type="radio" name="q1" value="1" checked="@(radioValue1 == 1)" @onclick="(()=>radioValue1 = 1)" />No
+            <input type="radio" name="q1" value="2" checked="@(radioValue1 == 2)" @onclick="(()=>radioValue1 = 2)" />Slight No
+            <input type="radio" name="q1" value="3" checked="@(radioValue1 == 3)" @onclick="(()=>radioValue1 = 3)" />Idk
+            <input type="radio" name="q1" value="4" checked="@(radioValue1 == 4)" @onclick="(()=>radioValue1 = 4)" />Slight Yes
+            <input type="radio" name="q1" value="5" checked="@(radioValue1 == 5)" @onclick="(()=>radioValue1 = 5)" />Yes
+            <br />
+            @radioValue1 @*Shows radio button clicked value*@
+        </div>
+
+        <br />
+
+        <div id="radiobutton">
+            <h4>2nd question.</h4>
+            @*Checked value goes to the variable radioValue*@
+            <input type="radio" name="q2" value="1" checked="@(radioValue2 == 1)" @onclick="(()=>radioValue2 = 1)" />No
+            <input type="radio" name="q2" value="2" checked="@(radioValue2 == 2)" @onclick="(()=>radioValue2 = 2)" />Slight No
+            <input type="radio" name="q2" value="3" checked="@(radioValue2 == 3)" @onclick="(()=>radioValue2 = 3)" />Idk
+            <input type="radio" name="q2" value="4" checked="@(radioValue2 == 4)" @onclick="(()=>radioValue2 = 4)" />Slight Yes
+            <input type="radio" name="q2" value="5" checked="@(radioValue2 == 5)" @onclick="(()=>radioValue2 = 5)" />Yes
+            <br />
+            @radioValue2 @*Shows radio button clicked value*@
+        </div>
+        <br />
+        @formValueError
+
+        <br />
+        <input type="button" @onclick="@Checkanswers" />
+    </div>
+</body>
+
+
+@code {
+    int radioValue1 = 0;
+    int radioValue2 = 0;
+
+    string formValueError;
+
+    @*If the radioValue is 0, it means answer is not answered. *@
+    private void Checkanswers()
+    {
+        if (radioValue1 == 0 || radioValue2 == 0)
+        {
+            formValueError = "Please please please";
+        }
+
+        else
+        {
+            formValueError = " ";
+        }
+    }
+}
