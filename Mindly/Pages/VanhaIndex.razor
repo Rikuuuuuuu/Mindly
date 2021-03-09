@@ -1,0 +1,266 @@
+﻿@page "/VanhaIndex"
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /*Style for h2*/
+        h2 {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 42px;
+            color: #4A4949;
+        }
+
+        /*Style for h3*/
+        h3 {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 28px;
+            color: #434343;
+        }
+
+        /*Style for button text*/
+        button {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            color: #FFFFFF;
+        }
+
+        .signUpDiv {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0 auto;
+            width: 710px;
+            height: 682px;
+            top: 203px;
+            /*background: blue;*/
+            text-align: center;
+        }
+
+        .signUpDiv2 {
+            position: absolute;
+            /*background: black;*/
+            width: 460px;
+            height: 460px;
+            left: 18%;
+            top: 130px;
+            text-align: left;
+        }
+
+        /*style for sign in button*/
+        .signUpButton {
+            width: 227px;
+            height: 71px;
+            background: #F46A54;
+            border-radius: 5px;
+        }
+
+        /*Style for second sign in button*/
+        .signUpButton2 {
+            width: 227px;
+            height: 71px;
+            background: #F46A54;
+            border-radius: 5px;
+            margin-left: 113px;
+            margin-top: 20px;
+        }
+
+        /*style for log in button*/
+        .logInButton {
+            width: 227px;
+            height: 71px;
+            background: rgba(67, 67, 67, 0.5);
+            border-radius: 5px;
+        }
+
+        .email{
+
+            margin-left: 125px;
+            margin-top : 50px;
+            text-align : center;
+        }
+
+        .password {
+            margin-left: 125px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .passwordagain {
+            margin-left: 125px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: 227px;
+            height: 71px;
+            padding: 10px 18px;
+            background-color: #F46A54;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: red;
+                cursor: pointer;
+            }
+
+        /* Change styles for span and cancel button on extra small screens */
+
+        .cancelbtn {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signUpDiv">
+
+        <h2>Welcome to Mindly App!</h2>
+
+        <h3>Please sign up or if you are an user already, please log in</h3>
+
+        <div class="signUpDiv2">
+
+            <button class="signUpButton" onclick="document.getElementById('Rekisteroidy').style.display='block'">Sign Up</button>
+
+            <button class="logInButton" onclick="location.href='logIn'">Log In</button><br>
+
+            <input type="text" class="email" name="email" placeholder="Email Address"><br>
+
+            <input type="password" class="password" autocomplete="off" name="password" placeholder="Password"><br>
+
+            <input type="password" class="passwordagain" name="passwordagain" placeholder="Confirm Password"><br>
+
+            <button class="signUpButton2" onclick="document.getElementById('Rekisteroidy').style.display='block'">Sign In</button>
+
+        </div>
+
+    </div>
+</body>
+
+
+
+@*
+<body>
+
+    <h2>Tervetuloa</h2>
+
+    <button onclick="document.getElementById('Rekisteroidy').style.display='block'" style="width:auto;">Luo Tili</button>
+
+    <button onclick="document.getElementById('Kirjautuminen').style.display='block'" style="width:auto;">Kirjaudu</button>
+
+
+    <div id="Rekisteroidy" class="modal">
+
+        <form class="modal-content animate" action="/counter" method="post">
+
+            <div class="container">
+                <label for="email"><b>Sähköposti</b></label>
+                <input type="email" placeholder="Sähköposti.." name="email" required>
+
+                <label for="Salasana"><b>Salasana</b></label>
+                <input type="password" placeholder="Salasana.." name="Salasana" required>
+
+                <label for="Salasana"><b>Vahvista salasana</b></label>
+                <input type="password" placeholder="Vahvista salasana.." name="SalasanaVah" required>
+
+                <button type="submit" onclick="matchPassword()">Luo tili</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('Rekisteroidy').style.display='none'" class="cancelbtn">Peruuta</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="Kirjautuminen" class="modal">
+
+        <form class="modal-content animate" action="/counter" method="post">
+
+            <div class="container">
+                <label for="Spost"><b>Sähköposti</b></label>
+                <input type="email" placeholder="Sähköposti.." name="Spost" required>
+
+                <label for="Salasana"><b>Salasana</b></label>
+                <input type="password" placeholder="Salasana.." name="Salasana" required>
+
+                <button type="submit">Kirjaudu</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Muista minut
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('Kirjautuminen').style.display='none'" class="cancelbtn">Peruuta</button>
+                <span class="psw">Unohtuiko <a href="#">salasana?</a></span>
+            </div>
+        </form>
+    </div>
+</body>*@

@@ -23,4 +23,8 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\DataAccessPages\" />
+  </ItemGroup>
+
 </Project>
