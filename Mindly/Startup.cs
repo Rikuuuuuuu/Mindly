@@ -15,7 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DataAccessLibrary;
+
+
 
 namespace Mindly
 {
@@ -42,8 +43,11 @@ namespace Mindly
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSingleton<WeatherForecastService>();
-            services.AddTransient<ISqlDataAccess, SqlDataAccess>();
-            services.AddTransient<IUserData, UserData>();
+
+
+           //Possible future data-access
+           //services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+           //services.AddTransient<IUserData, UserData>();
 
             services.AddDbContext<MindlyContext>(options =>
                    options.UseSqlServer(Configuration.GetConnectionString("Default")));

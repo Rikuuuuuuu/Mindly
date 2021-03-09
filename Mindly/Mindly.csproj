@@ -8,7 +8,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\repos\VilleHamalainen\BlazorBisResources\DataAccessLibrary\DataAccessLibrary.csproj" />
+    <Reference Include="DataAccessLibrary">
+      <HintPath>..\DataAccessLibrary\bin\Debug\netstandard2.0\DataAccessLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
