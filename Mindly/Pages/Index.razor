@@ -1,1 +1,67 @@
 ﻿@page "/"
+@using System.Net.Mail
+<AuthorizeView>
+    <Authorized>
+
+        <label for="testit">Choose a test</label>
+        <select name="testi" id="testi" @bind="@testi">
+            <option value="Testi1">Testi 1</option>
+            <option value="Testi2">Testi 2</option>
+        </select>
+        <br><br>
+        @testi
+        <br><br>
+        <label for="fname">Email:</label>
+        <input type="email" id="email" name="email" @bind="email" required><br><br>
+        <button class="btn btn-primary" @onclick="SendMail">Send Mail</button>
+        <br />
+
+        <span style="font-weight:bold;font-size:28px;color:#c00;">@Message</span>
+
+
+        @code{
+            string testi = "Testi1";
+            string email = "";
+            private string Message { get; set; } = "";
+            private void SendMail()
+            {
+                try
+                {
+                    using (MailMessage mail = new MailMessage())
+                    {
+                        mail.From = new MailAddress("mindlytest@gmail.com");
+                        mail.To.Add(email);
+                        mail.Subject = "Mindly email test";
+                        mail.IsBodyHtml = true;
+
+                        if (testi == "Testi1")
+                        {
+                            mail.Body = "<p>Testi1</p>";
+                        }
+
+                        if (testi == "Testi2")
+                        {
+                            mail.Body = "<p>Testi2</p>";
+                        }
+
+                        using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                        {
+                            smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
+                            smtp.EnableSsl = true;
+                            smtp.Send(mail);
+                            Message = "Mail sent";
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
+        }
+    </Authorized>
+    <NotAuthorized>
+        Log in first
+</NotAuthorized>
+</AuthorizeView>
