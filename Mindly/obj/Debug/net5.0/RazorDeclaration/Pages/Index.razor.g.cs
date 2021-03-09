@@ -116,13 +116,14 @@ using System.Net.Mail;
 
                         if (testi == "Testi1")
                         {
-                            mail.Body = "<p>Testi1</p>";
+                            mail.Body = "<h1>Otsikko</h1><p>Testi1</p>";
                         }
 
                         if (testi == "Testi2")
                         {
                             mail.Body = "<p>Testi2</p>";
                         }
+
                         using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                         {
                             smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
