@@ -13,77 +13,77 @@ namespace Mindly.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 1 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 2 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 3 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 4 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 5 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 6 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 7 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 8 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 9 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Mindly;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 10 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Mindly.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 2 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
 using System.Net.Mail;
 
 #line default
@@ -98,7 +98,7 @@ using System.Net.Mail;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 22 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 22 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
               
             string testi = "Testi1";
             string email = "";
@@ -121,7 +121,7 @@ using System.Net.Mail;
 
                         if (testi == "Testi2")
                         {
-                            mail.Body = "<p>Testi2</p>";
+                            mail.Body = "<h1>Otsikko</h1><p>Testi2</p>";
                         }
 
                         using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))

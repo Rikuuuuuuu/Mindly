@@ -14,15 +14,13 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-
     }
 
-    #logout-button {       
+    #logout-button {
         position: absolute;
         right: 220px;
         top: 40px;
     }
-
 </style>
 
 @*<link rel="stylesheet" href="/css/header-style.css" />*@
@@ -34,20 +32,32 @@
             <button id="logout-button" class="mindly-button">Log Out</button>
             <div class="line"></div>
         </div>
-        
+
     </header>
 
     <div class="sendtest-body">
         <div class="flex-container">
-                <h3>Welcome!</h3>
-                <h4>Send test</h4>
+            <h3>Welcome!</h3>
+            <h4>Send test</h4>
 
-                <input type="text" @bind="Email" placeholder="Email address" />
-                <button class="mindly-button" type="button" @onclick="EmailValidation">Send test</button>
+            <input type="text" @bind="Email" placeholder="Email address" />
+            <button class="mindly-button" type="button" @onclick="EmailValidation">Send test</button>
             <h3>@Message</h3>
         </div>
     </div>
+
+    <p>@RandomString(8)</p>
 </body>
+
+@code
+    { private static Random random = new Random();
+            public static string RandomString(int length)
+            {
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                return new string(Enumerable.Repeat(chars, length)
+                  .Select(s => s[random.Next(s.Length)]).ToArray());
+            } 
+    }
 
 
 @code {
