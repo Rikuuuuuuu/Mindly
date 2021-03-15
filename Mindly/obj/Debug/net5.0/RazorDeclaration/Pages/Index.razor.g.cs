@@ -98,57 +98,66 @@ using System.Net.Mail;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 20 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
-                  
-                    string testi = "Testi1";
-                    string email = "";
-                private string Message { get; set; } = "";
-                private void SendMail()
+#line 19 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+              
+            string testi = "Testi1";
+            string email = "";
+            string Id = "Placeholder";
+            private string Message { get; set; } = "";
+            private void SendMail()
+            {
+                if (email == "")
                 {
-                    if (email == "")
+                    Message = "Field empty";
+                }
+                else
+                {
+                    try
                     {
-                        Message = "Field empty";
-                    }
-                    else
-                    {
-                        try
+                        using (MailMessage mail = new MailMessage())
                         {
-                            using (MailMessage mail = new MailMessage())
+                            mail.IsBodyHtml = true;
+                            mail.From = new MailAddress("mindlytest@gmail.com");
+                            mail.To.Add(email);
+                            mail.Subject = "Mindly test"; //Aihe
+                            Attachment attachment = new System.Net.Mail.Attachment("C:/Users/Koti/Documents/Mindly I cover letter.pdf");//Liite Päivitä oman tiedostosijainnin mukaan
+                            mail.IsBodyHtml = true;
+
+                            if (testi == "Testi1")
                             {
-                                mail.From = new MailAddress("mindlytest@gmail.com");
-                                mail.To.Add(email);
-                                mail.Subject = "Mindly email test";
-                                mail.IsBodyHtml = true;
+                                //Viesti
+                                mail.Body = "Congratulations, you have been invited to take the Entrepreneurial Personality Test!<br><br>" +
+                                " Please, complete the Entrepreneurial Personality Test according to the instructions below before 20th of November." +
+                                " Good luck!<br><br><br>1.Open the link, " + "https://mindly.surveysparrow.com/s/mindly-meps-beta-fin/tt-03d580</a>" + "<br>" +
+                                " 2. Add id, " + Id + "<br> 3. Fill the survey <br> 4. Submit <br><br><br> Thank you for your cooperation.";
+                                //Liite
+                                mail.Attachments.Add(attachment);
+                                email = "";
+                            }
 
-                                if (testi == "Testi1")
-                                {
-                                    mail.Body = "<h2>Otsikko</h2><p>Testi1</p>";
-                                    email = "";
-                                }
+                            if (testi == "Testi2")
+                            {
+                                mail.Body = "<h2>Otsikko</h2><p>Testi2</p>";
+                                email = "";
+                            }
 
-                                if (testi == "Testi2")
-                                {
-                                    mail.Body = "<h2>Otsikko</h2><p>Testi2</p>";
-                                    email = "";
-                                }
-
-                                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
-                                {
-                                    smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
-                                    smtp.EnableSsl = true;
-                                    smtp.Send(mail);
-                                    Message = "Mail sent";
-                                }
+                            using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                            {
+                                smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
+                                smtp.EnableSsl = true;
+                                smtp.Send(mail);
+                                Message = "Mail sent";
                             }
                         }
-                        catch (Exception)
-                        {
+                    }
+                    catch (Exception)
+                    {
 
-                        }
                     }
                 }
+            }
 
-            
+        
 
 #line default
 #line hidden
