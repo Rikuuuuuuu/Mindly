@@ -143,6 +143,7 @@ using System.Net.Mail;
 
                             using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                             {
+                                //Email login
                                 smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
                                 smtp.EnableSsl = true;
                                 smtp.Send(mail);
