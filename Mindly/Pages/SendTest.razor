@@ -50,42 +50,44 @@
         </div>
     </div>
 
-    <p>@result@RandomString(5)</p>
+    <p>@randomId</p>
     <p>@_authMessage</p>
 </body>
 
 @code { public string _authUser;
-            private string _authMessage;
-            public string address = "";
-            public string host;
-            public string result;
+    private string _authMessage;
+    public string address = "";
+    public string host;
+    public string result;
+    public string randomId;
 
-            public async Task GetClaimsPrincipalData()
-            {
-                var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-                var user = authState.User;
+    public async Task GetClaimsPrincipalData()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
 
-                if (user.Identity.IsAuthenticated)
-                {
-                    _authUser = user.Identity.Name;
+        if (user.Identity.IsAuthenticated)
+        {
+            _authUser = user.Identity.Name;
 
-                    address = _authUser;
+            address = _authUser;
 
-                    // using Split
-                    host = address.Split('@')[1];
+            // using Split
+            host = address.Split('@')[1];
 
-                    result = host.Substring(0, 3);
-                }
-                else
-                {
-                    _authMessage = "The user is NOT authenticated.";
-                }
-            }
+            result = host.Substring(0, 3);
+            randomId = result + RandomString(5);
+        }
+        else
+        {
+            _authMessage = "The user is NOT authenticated.";
+        }
+    }
 
-            protected override async Task OnInitializedAsync()
-            {
-                await GetClaimsPrincipalData();
-            }
+    protected override async Task OnInitializedAsync()
+    {
+        await GetClaimsPrincipalData();
+    }
 }
 
 @code
