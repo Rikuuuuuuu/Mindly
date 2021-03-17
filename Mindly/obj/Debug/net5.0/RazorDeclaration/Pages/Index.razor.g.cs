@@ -100,9 +100,11 @@ using System.Net.Mail;
 #nullable restore
 #line 19 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
               
+            //Yrittäjän id:n generointi
+            private static Random random = new Random();
             string testi = "Testi1";
             string email = "";
-            string Id = "Placeholder";
+            //string Id = "Placeholder";
             private string Message { get; set; } = "";
             private void SendMail()
             {
@@ -129,7 +131,7 @@ using System.Net.Mail;
                                 mail.Body = "Congratulations, you have been invited to take the Entrepreneurial Personality Test!<br><br>" +
                                 " Please, complete the Entrepreneurial Personality Test according to the instructions below before 20th of November." +
                                 " Good luck!<br><br><br>1.Open the link, " + "https://mindly.surveysparrow.com/s/mindly-meps-beta-fin/tt-03d580</a>" + "<br>" +
-                                " 2. Add id, " + Id + "<br> 3. Fill the survey <br> 4. Submit <br><br><br> Thank you for your cooperation.";
+                                " 2. Add id, " + @Id(8) + "<br> 3. Fill the survey <br> 4. Submit <br><br><br> Thank you for your cooperation.";
                                 //Liite
                                 mail.Attachments.Add(attachment);
                                 email = "";
@@ -155,6 +157,13 @@ using System.Net.Mail;
                     {
 
                     }
+                }
+                //Yrittäjän id:n generointi
+                static string Id(int length)
+                {
+                    const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                    return new string(Enumerable.Repeat(chars, length)
+                    .Select(s => s[random.Next(s.Length)]).ToArray());
                 }
             }
 
