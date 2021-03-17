@@ -27,13 +27,6 @@ using Microsoft.AspNetCore.Authorization;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
-using Microsoft.AspNetCore.Components.Authorization;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 4 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -89,6 +82,20 @@ using System.Net.Mail;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+using System.Security.Claims;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+using Microsoft.AspNetCore.Components.Authorization;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -98,13 +105,12 @@ using System.Net.Mail;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 19 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 22 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
               
-            //Yrittäjän id:n generointi
             private static Random random = new Random();
             string testi = "Testi1";
             string email = "";
-            //string Id = "Placeholder";
+
             private string Message { get; set; } = "";
             private void SendMail()
             {
@@ -131,7 +137,7 @@ using System.Net.Mail;
                                 mail.Body = "Congratulations, you have been invited to take the Entrepreneurial Personality Test!<br><br>" +
                                 " Please, complete the Entrepreneurial Personality Test according to the instructions below before 20th of November." +
                                 " Good luck!<br><br><br>1.Open the link, " + "https://mindly.surveysparrow.com/s/mindly-meps-beta-fin/tt-03d580</a>" + "<br>" +
-                                " 2. Add id, " + @Id(8) + "<br> 3. Fill the survey <br> 4. Submit <br><br><br> Thank you for your cooperation.";
+                                " 2. Add id, " + randomId + Id(5) + "<br> 3. Fill the survey <br> 4. Submit <br><br><br> Thank you for your cooperation.";
                                 //Liite
                                 mail.Attachments.Add(attachment);
                                 email = "";
@@ -158,6 +164,7 @@ using System.Net.Mail;
 
                     }
                 }
+
                 //Yrittäjän id:n generointi
                 static string Id(int length)
                 {
@@ -172,6 +179,62 @@ using System.Net.Mail;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 92 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+                public string _authUser;
+            private string _authMessage;
+            public string address = "";
+            public string host;
+            public string result;
+            public string randomId;
+
+            public async Task GetClaimsPrincipalData()
+            {
+                var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                var user = authState.User;
+
+                if (user.Identity.IsAuthenticated)
+                {
+                    _authUser = user.Identity.Name;
+
+                    address = _authUser;
+
+                    // using Split
+                    host = address.Split('@')[1];
+
+                    result = host.Substring(0, 3);
+                    randomId = result + RandomString(0);
+                }
+                else
+                {
+                    _authMessage = "The user is NOT authenticated.";
+                }
+            }
+
+            protected override async Task OnInitializedAsync()
+            {
+                await GetClaimsPrincipalData();
+            }
+        
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 129 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+      private static Random random1 = new Random();
+            public static string RandomString(int length)
+            {
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                return new string(Enumerable.Repeat(chars, length)
+                  .Select(s => s[random1.Next(s.Length)]).ToArray());
+            }
+        
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     }
 }
 #pragma warning restore 1591
