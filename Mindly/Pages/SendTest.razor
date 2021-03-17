@@ -1,5 +1,9 @@
 ﻿@page "/sendtest"
 
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
 <style>
     .sendtest-body {
         display: flex;
@@ -46,18 +50,53 @@
         </div>
     </div>
 
-    <p>@RandomString(8)</p>
+    <p>@result@RandomString(5)</p>
+    <p>@_authMessage</p>
 </body>
+
+@code { public string _authUser;
+            private string _authMessage;
+            public string address = "";
+            public string host;
+            public string result;
+
+            public async Task GetClaimsPrincipalData()
+            {
+                var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                var user = authState.User;
+
+                if (user.Identity.IsAuthenticated)
+                {
+                    _authUser = user.Identity.Name;
+
+                    address = _authUser;
+
+                    // using Split
+                    host = address.Split('@')[1];
+
+                    result = host.Substring(0, 3);
+                }
+                else
+                {
+                    _authMessage = "The user is NOT authenticated.";
+                }
+            }
+
+            protected override async Task OnInitializedAsync()
+            {
+                await GetClaimsPrincipalData();
+            }
+}
 
 @code
     { private static Random random = new Random();
-            public static string RandomString(int length)
-            {
-                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                return new string(Enumerable.Repeat(chars, length)
-                  .Select(s => s[random.Next(s.Length)]).ToArray());
-            } 
+    public static string RandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        return new string(Enumerable.Repeat(chars, length)
+          .Select(s => s[random.Next(s.Length)]).ToArray());
     }
+}
 
 
 @code {
