@@ -1,5 +1,8 @@
 ﻿@page "/"
 @using System.Net.Mail
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
 <AuthorizeView>
     <Authorized>
         <!--Testin valinta-->
@@ -17,10 +20,10 @@
 
         <span style="font-weight:bold;font-size:28px;color:#c00;">@Message</span>
         @code{
-            //Yrittäjän id:n generointi
             private static Random random = new Random();
             string testi = "Testi1";
             string email = "";
+
             private string Message { get; set; } = "";
             private void SendMail()
             {
@@ -47,7 +50,7 @@
                                 mail.Body = "Congratulations, you have been invited to take the Entrepreneurial Personality Test!<br><br>" +
                                 " Please, complete the Entrepreneurial Personality Test according to the instructions below before 20th of November." +
                                 " Good luck!<br><br><br>1.Open the link, " + "https://mindly.surveysparrow.com/s/mindly-meps-beta-fin/tt-03d580</a>" + "<br>" +
-                                " 2. Add id, " + @Id(8) + "<br> 3. Fill the survey <br> 4. Submit <br><br><br> Thank you for your cooperation.";
+                                " 2. Add id, " + randomId + Id(5) + "<br> 3. Fill the survey <br> 4. Submit <br><br><br> Thank you for your cooperation.";
                                 //Liite
                                 mail.Attachments.Add(attachment);
                                 email = "";
@@ -74,6 +77,7 @@
 
                     }
                 }
+
                 //Yrittäjän id:n generointi
                 static string Id(int length)
                 {
@@ -84,9 +88,56 @@
             }
 
         }
-    </Authorized>
-             <NotAuthorized>
-                 Log in first
-             </NotAuthorized>
 
-    </AuthorizeView>
+        @code { public string _authUser;
+            private string _authMessage;
+            public string address = "";
+            public string host;
+            public string result;
+            public string randomId;
+
+            public async Task GetClaimsPrincipalData()
+            {
+                var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                var user = authState.User;
+
+                if (user.Identity.IsAuthenticated)
+                {
+                    _authUser = user.Identity.Name;
+
+                    address = _authUser;
+
+                    // using Split
+                    host = address.Split('@')[1];
+
+                    result = host.Substring(0, 3);
+                    randomId = result + RandomString(0);
+                }
+                else
+                {
+                    _authMessage = "The user is NOT authenticated.";
+                }
+            }
+
+            protected override async Task OnInitializedAsync()
+            {
+                await GetClaimsPrincipalData();
+            }
+        }
+
+        @code
+            { private static Random random1 = new Random();
+            public static string RandomString(int length)
+            {
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                return new string(Enumerable.Repeat(chars, length)
+                  .Select(s => s[random1.Next(s.Length)]).ToArray());
+            }
+        }
+
+    </Authorized>
+    <NotAuthorized>
+        Log in first
+    </NotAuthorized>
+
+</AuthorizeView>
