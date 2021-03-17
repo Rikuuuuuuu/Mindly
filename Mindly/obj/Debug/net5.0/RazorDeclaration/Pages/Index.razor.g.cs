@@ -13,77 +13,77 @@ namespace Mindly.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 1 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 2 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 3 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 4 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 5 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 6 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 7 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 8 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 9 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Mindly;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 10 "C:\Users\Omistaja\Desktop\Mindly\Mindly\_Imports.razor"
 using Mindly.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 2 "C:\Users\Omistaja\Desktop\Mindly\Mindly\Pages\Index.razor"
 using System.Net.Mail;
 
 #line default
@@ -98,57 +98,72 @@ using System.Net.Mail;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 20 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
-                  
-                    string testi = "Testi1";
-                    string email = "";
-                private string Message { get; set; } = "";
-                private void SendMail()
+#line 21 "C:\Users\Omistaja\Desktop\Mindly\Mindly\Pages\Index.razor"
+               //Yrittäjän id:n generointi
+            private static Random random = new Random();
+            public static string RandomString(int length)
+            {
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                return new string(Enumerable.Repeat(chars, length)
+                    .Select(s => s[random.Next(s.Length)]).ToArray());
+            }
+        
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 31 "C:\Users\Omistaja\Desktop\Mindly\Mindly\Pages\Index.razor"
+               //Sähköposti
+            string testi = "Testi1";
+            string email = "";
+            private string Message { get; set; } = "";
+            private void SendMail()
+            {
+                if (email == "")
                 {
-                    if (email == "")
+                    Message = "Field empty";
+                }
+                else
+                {
+                    try
                     {
-                        Message = "Field empty";
-                    }
-                    else
-                    {
-                        try
+                        using (MailMessage mail = new MailMessage())
                         {
-                            using (MailMessage mail = new MailMessage())
+                            mail.From = new MailAddress("mindlytest@gmail.com");
+                            mail.To.Add(email);
+                            mail.Subject = "Mindly email test";
+                            mail.IsBodyHtml = true;
+
+                            if (testi == "Testi1")
                             {
-                                mail.From = new MailAddress("mindlytest@gmail.com");
-                                mail.To.Add(email);
-                                mail.Subject = "Mindly email test";
-                                mail.IsBodyHtml = true;
+                                mail.Body = "<h2>Otsikko</h2><p>Testi1</p>";
+                                email = "";
+                            }
 
-                                if (testi == "Testi1")
-                                {
-                                    mail.Body = "<h2>Otsikko</h2><p>Testi1</p>";
-                                    email = "";
-                                }
+                            if (testi == "Testi2")
+                            {
+                                mail.Body = "<h2>Otsikko</h2><p>Testi2</p>";
+                                email = "";
+                            }
 
-                                if (testi == "Testi2")
-                                {
-                                    mail.Body = "<h2>Otsikko</h2><p>Testi2</p>";
-                                    email = "";
-                                }
-
-                                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
-                                {
-                                    smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
-                                    smtp.EnableSsl = true;
-                                    smtp.Send(mail);
-                                    Message = "Mail sent";
-                                }
+                            using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                            {
+                                smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
+                                smtp.EnableSsl = true;
+                                smtp.Send(mail);
+                                Message = "Mail sent";
                             }
                         }
-                        catch (Exception)
-                        {
+                    }
+                    catch (Exception)
+                    {
 
-                        }
                     }
                 }
+            }
 
-            
+        
 
 #line default
 #line hidden

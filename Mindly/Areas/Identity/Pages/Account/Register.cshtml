@@ -1,5 +1,6 @@
 ﻿@page
 @model RegisterModel
+@using System.Net.Mail
 @{
     ViewData["Title"] = "Register";
 }
@@ -43,6 +44,35 @@
                             There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
                             for details on setting up this ASP.NET application to support logging in via external services.
                         </p>
+                        @* SÄHKÖPOSTII *@
+                        @{
+                            string email = ("@email");
+                            try
+                            {
+                                using (MailMessage mail = new MailMessage())
+                                {
+                                    mail.From = new MailAddress("mindlytest@gmail.com");
+                                    mail.To.Add();
+                                    mail.Subject = "Mindly email test";
+                                    mail.IsBodyHtml = true;
+                                    mail.Body = "<h2>Otsikko</h2><p>Testiauthentication</p>";
+                                    //email = "gr188369@gradia.fi";
+
+                                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                                    {
+                                        smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
+                                        smtp.EnableSsl = true;
+                                        smtp.Send(mail);
+                                        //Message = "Mail sent";
+                                    }
+                                }
+                            }
+
+                            catch (Exception)
+                            {
+
+                            }
+                        }
                     </div>
                 }
                 else

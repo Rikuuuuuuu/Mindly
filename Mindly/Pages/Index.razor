@@ -3,73 +3,86 @@
 <AuthorizeView>
     <Authorized>
 
-            <label for="testit">Choose a test</label>
-            <select name="testi" id="testi" @bind="@testi">
-                <option value="Testi1">Testi 1</option>
-                <option value="Testi2">Testi 2</option>
-            </select>
-            <br><br>
-            @testi
-            <br><br>
-            <label for="fname">Email:</label>
-            <input type="email" id="email" name="email" @bind="email" required><br><br>
-            <button class="btn btn-primary" @onclick="SendMail">Send Mail</button>
-            <br/>
+        <label for="testit">Choose a test</label>
+        <select name="testi" id="testi" @bind="@testi">
+            <option value="Testi1">Testi 1</option>
+            <option value="Testi2">Testi 2</option>
+        </select>
+        <br><br>
+        @testi
+        <br><br>
+        <label for="fname">Email:</label>
+        <input type="email" id="email" name="email" @bind="email" required><br><br>
+        <button class="btn btn-primary" @onclick="SendMail" @onclick="RandomString">Send Mail</button>
+        <br />
 
-            <span style="font-weight:bold;font-size:28px;color:#c00;">@Message</span>
-            @code{
-                    string testi = "Testi1";
-                    string email = "";
-                private string Message { get; set; } = "";
-                private void SendMail()
+        <span style="font-weight:bold;font-size:28px;color:#c00;">@Message</span>
+
+        @code{ //Yrittäjän id:n generointi
+            private static Random random = new Random();
+            public static string RandomString(int length)
+            {
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                return new string(Enumerable.Repeat(chars, length)
+                    .Select(s => s[random.Next(s.Length)]).ToArray());
+            }
+        }
+
+        @code{ //Sähköposti
+            string testi = "Testi1";
+            string email = "";
+            private string Message { get; set; } = "";
+            private void SendMail()
+            {
+                if (email == "")
                 {
-                    if (email == "")
+                    Message = "Field empty";
+                }
+                else
+                {
+                    try
                     {
-                        Message = "Field empty";
-                    }
-                    else
-                    {
-                        try
+                        using (MailMessage mail = new MailMessage())
                         {
-                            using (MailMessage mail = new MailMessage())
+                            mail.From = new MailAddress("mindlytest@gmail.com");
+                            mail.To.Add(email);
+                            mail.Subject = "Mindly email test";
+                            mail.IsBodyHtml = true;
+
+                            if (testi == "Testi1")
                             {
-                                mail.From = new MailAddress("mindlytest@gmail.com");
-                                mail.To.Add(email);
-                                mail.Subject = "Mindly email test";
-                                mail.IsBodyHtml = true;
+                                mail.Body = "<h2>Otsikko</h2><p>Testi1</p>";
+                                email = "";
+                            }
 
-                                if (testi == "Testi1")
-                                {
-                                    mail.Body = "<h2>Otsikko</h2><p>Testi1</p>";
-                                    email = "";
-                                }
+                            if (testi == "Testi2")
+                            {
+                                mail.Body = "<h2>Otsikko</h2><p>Testi2</p>";
+                                email = "";
+                            }
 
-                                if (testi == "Testi2")
-                                {
-                                    mail.Body = "<h2>Otsikko</h2><p>Testi2</p>";
-                                    email = "";
-                                }
-
-                                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
-                                {
-                                    smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
-                                    smtp.EnableSsl = true;
-                                    smtp.Send(mail);
-                                    Message = "Mail sent";
-                                }
+                            using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                            {
+                                smtp.Credentials = new System.Net.NetworkCredential("mindlytest@gmail.com", "Koulu1234");
+                                smtp.EnableSsl = true;
+                                smtp.Send(mail);
+                                Message = "Mail sent";
                             }
                         }
-                        catch (Exception)
-                        {
+                    }
+                    catch (Exception)
+                    {
 
-                        }
                     }
                 }
-
             }
-</Authorized>
+
+        }
+    </Authorized>
          <NotAuthorized>
-             Log in first
+             Hello, welcome to Mindly app!
+             <br />
+             Log in first.
          </NotAuthorized>
 
 </AuthorizeView>
