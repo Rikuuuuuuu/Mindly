@@ -13,84 +13,84 @@ namespace Mindly.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 1 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 2 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 4 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 5 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 6 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 7 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 8 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 9 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Mindly;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\_Imports.razor"
+#line 10 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\_Imports.razor"
 using Mindly.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 2 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
 using System.Net.Mail;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 3 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
 using System.Security.Claims;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 4 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
@@ -105,7 +105,7 @@ using Microsoft.AspNetCore.Components.Authorization;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 81 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 81 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
                   
                 private static Random random = new Random();
                 string testi = "Testi1";
@@ -180,7 +180,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line hidden
 #nullable disable
 #nullable restore
-#line 151 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 151 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
                     public string _authUser;
                 private string _authMessage;
                 public string address = "";
@@ -221,7 +221,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 #line hidden
 #nullable disable
 #nullable restore
-#line 188 "C:\Users\rasmu\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
+#line 188 "C:\Users\Koti\Documents\GitHub\Mindly\Mindly\Pages\Index.razor"
               private static Random random1 = new Random();
                 public static string RandomString(int length)
                 {
