@@ -47,7 +47,7 @@
             width: 204px;
             height: 80px;
             background: #F46A54;
-            font-size: 24px;
+            font-size: 24px; 
             margin-top: 20px;
         }
 
@@ -100,7 +100,7 @@
                                 mail.From = new MailAddress("mindlytest@gmail.com");
                                 mail.To.Add(email);
                                 mail.Subject = "Mindly test"; //Aihe
-                                Attachment attachment = new System.Net.Mail.Attachment("C:/Users/Koti/Documents/Mindly I cover letter.pdf");//Liite Päivitä oman tiedostosijainnin mukaan
+                                Attachment attachment = new System.Net.Mail.Attachment("wwwroot/Mindly I cover letter.pdf");//Liite Päivitä oman tiedostosijainnin mukaan
                                 mail.IsBodyHtml = true;
 
                                 if (testi == "Testi1")
