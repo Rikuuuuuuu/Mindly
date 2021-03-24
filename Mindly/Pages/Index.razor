@@ -100,7 +100,7 @@
                                 mail.From = new MailAddress("mindlytest@gmail.com");
                                 mail.To.Add(email);
                                 mail.Subject = "Mindly test"; //Aihe
-                                Attachment attachment = new System.Net.Mail.Attachment("wwwroot/Mindly I cover letter.pdf");//Liite Päivitä oman tiedostosijainnin mukaan
+                                Attachment attachment = new System.Net.Mail.Attachment("wwwroot/Mindly I cover letter.pdf");
                                 mail.IsBodyHtml = true;
 
                                 if (testi == "Testi1")
